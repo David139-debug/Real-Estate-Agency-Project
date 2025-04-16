@@ -18,6 +18,8 @@ import getUsers from "./routes/getAllUsers";
 dotenv.config();
 connectDB();
 
+const PORT = process.env.PORT || 5000;
+
 const app = express();
 app.use(cookieParser());
 
@@ -41,7 +43,7 @@ app.use("/getUsers", getUsers);
 
 mongoose.connection.once("open", () => {
     console.log("Connected to MongoDB");
-    app.listen(process.env.PORT, () => {
+    app.listen(PORT, () => {
         console.log("Server running on port", process.env.PORT);
     });
 });
