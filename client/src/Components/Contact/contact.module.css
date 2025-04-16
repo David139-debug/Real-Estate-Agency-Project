@@ -14,7 +14,7 @@
     background-color: #fff;
     border-radius: 1rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    width: 35%;
+    width: 500px;
 }
   
 .form div {
@@ -64,4 +64,8 @@ label {
   
 .sendBtn:hover {
     background-color: #005fcc;
+}
+
+@media (max-width: 1024px) {
+    
 }

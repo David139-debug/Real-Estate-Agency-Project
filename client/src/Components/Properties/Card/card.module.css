@@ -67,7 +67,7 @@
 
 .propertyDesc {
     padding: 2em;
-    width: 50%;
+    width: 70%;
     border-bottom: 2px solid rgb(128, 128, 128, 0.4);
     margin-bottom: 1em;
 }
@@ -181,7 +181,6 @@
     font-size: 3rem;
     position: absolute;
     top: 50%;
-
     cursor: pointer;
     background-color: #f8f8f8;
     border-radius: 50px;
@@ -232,15 +231,20 @@
 
 @media (max-width: 1024px) {
     .scrollIcons {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        width: 50px;
     }
 
     .rightIcon {
-        right: calc(-15%);
+        right: calc(-5%);
     }
 
     .right {
         display: none;
+    }
+
+    .left {
+        width: 80%;
     }
 
     .img {
@@ -252,5 +256,36 @@
     .details {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .scrollIcons {
+        font-size: 1rem;
+        width: 50px;
+    }
+
+    .left {
+        width: 100%;
+    }
+
+    .rightIcon {
+        right: calc(-7%);
+    }
+
+    .propertyDesc {
+        width: 70%;
+    }
+}
+
+@media (max-width: 425px) {
+    .propertyDesc {
+        width: 100%;
+    }
+
+    .left {
+        width: 100%;
+    }
+
+    .rightIcon {
+        right: calc(-13%);
     }
 }
