@@ -1,0 +1,101 @@
+.form {
+    width: 100%;
+    max-width: 300px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 3em;
+}
+
+.form input[type="checkbox"] {
+    accent-color: #dc5404;
+    width: 1.3em;
+    height: 1.3em;
+    cursor: pointer;
+    margin-right: 10px;
+    background-color: white;
+}
+
+.form label {
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.form h3 {
+    font-size: 1.3rem;
+}
+
+.price {
+    display: flex;
+    gap: 20px;
+}
+
+.price input {
+    width: 100px;
+    height: 50px;
+    border: none;
+    outline: orange;
+    margin-top: .7em;
+}
+
+.price div {
+    display: flex;
+    flex-direction: column;
+}
+
+.offer,
+.propertyType {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.offer label {
+    padding: .5em;
+}
+
+.form input {
+    border-radius: 10px;
+    border: 1px solid #dc5404;
+    padding: .3em;
+    font-size: 1.2rem;
+}
+
+.location input {
+    margin-top: 1em;
+    width: 100%;
+}
+
+.button {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 10%);
+    color: white;
+    background-image: linear-gradient(to right, #dc5404, #dc5404);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+    transition: background-size .2s ease-in-out, color .3s;
+    border: none;
+    font-size: 1.5em;
+    padding: 0;
+    border-radius: 15px;
+}
+
+.button:hover {
+    background-size: 100% 100%;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .offer,
+    .propertyType {
+        font-size: 0.9rem;
+    }
+
+    .price input {
+        height: auto;
+    }
+}

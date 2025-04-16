@@ -1,0 +1,77 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f3fe;
+}
+
+.form {
+    font-size: 1.5rem;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.topic {
+    text-align: center;
+}
+
+.form div {
+    padding: .7em;
+}
+
+.form label {
+    display: block;
+    margin-bottom: .5em;
+}
+
+.form input {
+    font-size: 1.1rem;
+    padding: .7em;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.editBtn {
+    cursor: pointer;
+    width: 200px;
+    margin: auto;
+    background-color: hsl(0, 0%, 10%);
+    color: white;
+    background-image: linear-gradient(to right, #dc5404, #dc5404);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+    transition: background-size .2s ease-in-out, color .3s;
+    border: none;
+    font-size: 1em;
+    padding: 0;
+    border-radius: 10px;
+}
+
+.editBtn:hover {
+    background-size: 100% 100%;
+}
+
+.icon {
+    position: absolute;
+    transform: translate(-180%, 50%);
+    color: #dc5404;
+}
+
+.passIcon {
+    transform: translate(-150%, 50%);
+}
+
+.hoverIcon {
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.hoverIcon:hover {
+    color: hsl(22, 96%, 34%);
+}

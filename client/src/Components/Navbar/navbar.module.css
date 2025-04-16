@@ -1,0 +1,160 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 1em;
+    position: absolute;
+    background-color: rgb(52, 62, 67, 0.7);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    transition: transform .1s;
+    transform: translateY(0);
+    z-index: 999;
+}
+
+.navbar div a {
+    text-decoration: none;
+    color: white;
+    transition: color .1s, transform .1s;
+    transform: translateY(0);
+}
+
+.navbar div a:hover {
+    color: #dc5404;
+    transform: translateY(-15%);
+}
+
+.left {
+    display: flex;
+    gap: 55px;
+    padding: 1em 3em;
+    font-size: 1.5rem;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    font-size: 1.5rem;
+}
+
+.profile {
+    display: flex;
+    gap: 1em;
+    text-transform: capitalize;
+}
+
+.right button {
+    cursor: pointer;
+    color: black;
+    border: none;
+    width: 150px;
+    transition: background-color .2s, color .2s;
+    border-radius: 10px;
+}
+
+.right button:hover {
+    background-color: #dc5404;
+    color: white;
+}
+
+.setHide {
+    transform: translateY(-100%);
+}
+
+.sale, .rent, .profileDiv {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdownMenu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 60px;
+    background-color: black;
+    padding: 1em;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    width: 300px;
+}
+
+.dropdownMenu li {
+    list-style: none;
+    color: white;
+    padding: .5em;
+    transition: background-color .2s, transform .2s;
+    transform: translateX(0);
+}
+
+.dropdownMenu div {
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
+
+.sale:hover .dropdownMenu,
+.rent:hover .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdownMenu div:hover {
+    background-color: #dc5404;
+}
+
+.dropdownMenu div:hover li {
+    transform: translateX(10%);
+}
+
+.profileDropdownMenu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: black;
+    padding: 1em;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    width: 300px;
+}
+
+.profileDropdownMenu li {
+    list-style: none;
+    color: white;
+    padding: .5em;
+    transition: background-color .2s, transform .2s;
+    transform: translateX(0);
+}
+
+.profileDropdownMenu div {
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
+
+.profileDiv:hover .profileDropdownMenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.profileDropdownMenu div:hover {
+    background-color: #dc5404;
+}
+
+.profileDropdownMenu div:hover li {
+    transform: translateX(10%);
+}
+
+@media (max-width: 1024px) {
+    .left, .right {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: none;
+    }
+}

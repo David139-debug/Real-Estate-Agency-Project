@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.wrapper {
+    background: url("./img/panorama.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 10000px inset;
+}
+
+.title {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.photoDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    text-align: center;
+    position: relative;
+}
+
+.card {
+    background-color: #2E2E2E;
+    width: 20%;
+    height: auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card h1 {
+    color: #dc5304;
+    padding: 1em;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 1.3rem;
+    color: white;
+}
+
+.images {
+    width: 100%;
+    object-fit:fill
+}
+
+.card div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 13em;
+    padding-bottom: 1em;
+}
+
+.text {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.button {
+    cursor: pointer;
+    width: 500px;
+    margin: auto;
+    background-color: hsl(0, 0%, 10%);
+    color: white;
+    background-image: linear-gradient(to right, #dc5404, #dc5404);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+    transition: background-size .2s ease-in-out, color .3s;
+    border: none;
+    font-size: 1.5em;
+    padding: 0;
+    margin: 1em;
+}
+
+.button:hover {
+    background-size: 100% 100%;
+}
+
+.animateText {
+    opacity: 1;
+}

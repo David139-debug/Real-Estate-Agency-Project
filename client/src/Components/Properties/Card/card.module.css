@@ -1,0 +1,256 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f4fc;
+}
+
+.about {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(-40%);
+    transition: 1s ease-in-out;
+}
+
+.name {
+    font-size: 2rem;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+.imgDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    padding: 1em;
+    position: relative;
+    transition: 1s ease-in-out;
+    opacity: 0;
+}
+
+.img {
+    width: 100%;
+    height: 630px;
+    margin-bottom: 1em;
+}
+
+.left {
+    width: 50%;
+    text-align: center;
+    position: relative;
+}
+
+.right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 25%;
+    gap: 10px;
+    height: 0;
+}
+
+.right img {
+    width: 100%;
+    height: 200px;
+    cursor: pointer;
+    transition: .1s ease-in-out;
+}
+
+.right img:hover {
+    filter: brightness(80%);
+}
+
+.propertyDesc {
+    padding: 2em;
+    width: 50%;
+    border-bottom: 2px solid rgb(128, 128, 128, 0.4);
+    margin-bottom: 1em;
+}
+
+.descTitle {
+    font-size: 2rem;
+    margin-bottom: .5em;
+}
+
+.propertyDesc p {
+    font-size: 1.2rem;
+    white-space: pre-wrap;
+}
+
+.value {
+    font-weight: bold;
+    color: #dc5404;
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    padding-bottom: 1em;
+    border-bottom: 2px solid rgb(128, 128, 128, 0.4);
+    margin-bottom: 3em;
+    width: 70%;
+}
+
+.propDiv {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: auto;
+    gap: 15px;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.featDiv {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    border-bottom: 2px solid rgb(128, 128, 128, 0.4);
+    padding: .5em;
+    width: 50%;
+    margin: auto;
+}
+
+.card {
+    padding: 1em;
+    background-color: #f8f8f8;
+    margin: 1em 0;
+    font-size: 1.6rem;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card p {
+    padding: .5em;
+}
+
+.contactBtn {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 10%);
+    color: white;
+    background-image: linear-gradient(to right, #dc5404, #dc5404);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+    transition: background-size .2s ease-in-out, color .3s;
+    border: none;
+    font-size: 1em;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.contactBtn:hover {
+    background-size: 100% 100%;
+    color: white;
+}
+
+.deleteBtn {
+    cursor: pointer;
+    background-color: hsl(0, 100%, 50%);
+    color: white;
+    transition: background-color .2s;
+    border: none;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 0;
+    border-radius: 15px;
+    width: 20%;
+    margin-bottom: 1em;
+}
+
+.deleteBtn:hover {
+    background-color: hsl(0, 100%, 40%);
+}
+
+.scrollIcons {
+    font-size: 3rem;
+    position: absolute;
+    top: 50%;
+
+    cursor: pointer;
+    background-color: #f8f8f8;
+    border-radius: 50px;
+    width: 70px;
+    padding: 5px;
+    transition: .1s ease-in-out;
+}
+
+.scrollIcons:hover {
+    background-color: #dc5404;
+    color: white;
+}
+
+.leftIcon {
+    left: 10px;
+}
+
+.rightIcon {
+    right: calc(-5%);
+}
+
+.animateImages {
+    opacity: 1;
+}
+
+.animateText {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 1440px) {
+    .scrollIcons {
+        font-size: 2rem;
+    }
+
+    .rightIcon {
+        right: calc(-10%);
+    }
+
+    .img {
+        height: 500px;
+    }
+
+    .right img {
+        height: 100px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .scrollIcons {
+        font-size: 1.5rem;
+    }
+
+    .rightIcon {
+        right: calc(-15%);
+    }
+
+    .right {
+        display: none;
+    }
+
+    .img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
