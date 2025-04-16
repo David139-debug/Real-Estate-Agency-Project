@@ -16,11 +16,16 @@ const Contact = () => {
         dispatch(fetchUser());
     }, [dispatch])
 
+    console.log(user)
+
     useEffect(() => {
-        if (status === "loading" && user === null) {
-            navigate("/login");
+        if (status === "succeeded" || status === "loading") {
+            if (!user) {
+                navigate("/login", { state: { from: "/contact" } });
+            }
+            
         }
-    }, [user])
+    }, [status, user])
 
     return(
         <section className={styles.wrapper}>

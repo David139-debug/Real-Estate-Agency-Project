@@ -1,11 +1,12 @@
 import styles from "./authorization.module.css"
 import { useDispatch, useSelector } from "react-redux";
 import { updateField } from "../../Redux/authSlice";
-import { RootState } from "../../Redux/store";
+import { AppDispatch, RootState } from "../../Redux/store";
 import { AxiosError } from "axios";
 import api from "../../api";
-import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router";
+import { fetchUser } from "../../Redux/userSlice";
 
 interface Error {
     email?: string;
@@ -15,9 +16,26 @@ interface Error {
 const Login = () => {
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const formData = useSelector((state: RootState) => state.auth);
+    const user = useSelector((state: RootState) => state.user.user);
+    const status = useSelector((state: RootState) => state.user.status);
     const [error, setError] = useState<Error>({});
+
+    const location = useLocation();
+    const from = (location.state as { from: string })?.from || "/";
+
+    useEffect(() => {
+        dispatch(fetchUser());
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (status === "loading" || status === "succeeded" ) {
+            if (user) {
+                navigate(from);
+            }
+        }
+    }, [user, location.state])
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const name = e.target.name as "email" | "password";
@@ -32,7 +50,8 @@ const Login = () => {
         try {
             const response = await api.post("http://localhost:5000/login", formData);
             if (response.data) {
-                navigate("/");
+                navigate(from);
+                window.location.reload();
             }
             setError({});
         } catch (err) {

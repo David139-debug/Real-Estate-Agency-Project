@@ -118,7 +118,7 @@ const Navbar = () => {
                                 {user?.role === "user" && (
                                 <>
                                 <div>
-                                    <li>Edit Profile</li>
+                                <li onClick={() => navigate("/profile")}>Edit Profile</li>
                                 </div>
                                 <div onClick={handleLogout}>
                                     <li>Logout</li>

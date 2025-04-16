@@ -62,13 +62,10 @@ const AddMenu = () => {
         dispatch(fetchUser());
     }, [dispatch]);
 
-    useEffect(() => {
-        if (status === "loading" || status === "succeeded") {
-            if (role === "user") {
-                navigate("/");
-            }
-        }
-    }, [navigate, role])
+    if (role !== "agent") {
+        navigate("/");
+        return null;
+    }
 
     useEffect(() => {
         if (name) {

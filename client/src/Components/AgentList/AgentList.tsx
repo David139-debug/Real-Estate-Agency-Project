@@ -38,6 +38,9 @@ const AgentList = () => {
     }, [dispatch]);
 
     useEffect(() => {
+        if (role === undefined) {
+            navigate("/")
+        }
         if (status === "loading" || status === "succeeded") {
             if (role !== "owner") {
                 navigate("/");

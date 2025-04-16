@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateField, resetForm } from "../../Redux/authSlice";
 import { AppDispatch, RootState } from "../../Redux/store";
 import { fetchUser } from "../../Redux/userSlice";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios, { AxiosError } from "axios";
 const BACKEND_URI = import.meta.env.BACKEND_URI;
@@ -23,6 +23,20 @@ const Register = () => {
 
     const dispatch = useDispatch<AppDispatch>();
     const formData = useSelector((state: RootState) => state.auth);
+    const user = useSelector((state: RootState) => state.user.user);
+    const status = useSelector((state: RootState) => state.user.status);
+
+    useEffect(() => {
+            dispatch(fetchUser());
+        }, [dispatch]);
+    
+        useEffect(() => {
+            if (status === "loading" || status === "succeeded" ) {
+                if (user) {
+                    navigate("/");
+                }
+            }
+        }, [user])
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const name = e.target.name as "name" | "lastname" | "phone" | "email" | "password";
