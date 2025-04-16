@@ -7,8 +7,8 @@ import { fetchUser } from "../../../Redux/userSlice";
 import { useEffect, useState } from "react";
 import { AppDispatch } from "../../../Redux/store";
 import { RootState } from "../../../Redux/store";
-import axios from "axios";
 import { useNavigate } from "react-router";
+import api from "../../../api";
 
 const Card = () => {
 
@@ -43,7 +43,7 @@ const Card = () => {
 
     const handleDelete = async () => {
         try {
-            await axios.delete("http://localhost:5000/deleteProperty", {
+            await api.delete("http://localhost:5000/deleteProperty", {
                 data: {
                     id: property._id
                 }

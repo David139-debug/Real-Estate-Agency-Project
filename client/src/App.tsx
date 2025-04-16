@@ -1,7 +1,6 @@
 import Navbar from "./Components/Navbar/Navbar"
 import Wrapper from "./Components/Welcome/Wrapper"
 import Places from "./Components/Places/Places"
-import ExclusiveProperties from "./Components/Exclusive Properties/ExclusiveProperties"
 import Login from "./Components/Authorization/Login"
 import Register from "./Components/Authorization/Register"
 import Properties from "./Components/Properties/Properties"

@@ -33,7 +33,6 @@ const AddMenu = () => {
     const dispatch = useDispatch<AppDispatch>();
     const name = useSelector((state: RootState) => state.user.user?.name);
     const role = useSelector((state: RootState) => state.user.user?.role);
-    const status = useSelector((state: RootState) => state.user.status);
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState<Property>({
