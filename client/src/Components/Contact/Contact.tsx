@@ -1,27 +1,43 @@
 import styles from "./contact.module.css"
+import { fetchUser } from "../../Redux/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../Redux/store";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
 const Contact = () => {
 
-    const handleSubmit = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
+    const status = useSelector((state: RootState) => state.user.status);
+    const user = useSelector((state: RootState) => state.user.user);
 
-    };
+    useEffect(() => {
+        dispatch(fetchUser());
+    }, [dispatch])
+
+    useEffect(() => {
+        if (status === "loading" && user === null) {
+            navigate("/login");
+        }
+    }, [user])
 
     return(
         <section className={styles.wrapper}>
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <form className={styles.form}>
                 <h1 style={{ textAlign: "center", fontSize: "2.5rem" }}>Contact Form</h1>
                 <div>
                     <label>Your Name</label>
-                    <input type="text" />
+                    <input type="text" required/>
                 </div>
                 <div>
                     <label>Your Email</label>
-                    <input type="email" />
+                    <input type="email" required />
                 </div>
                 <div>
                     <label>Property type</label>
                     <select>
-                        <option value="" selected hidden>Select Type</option>
+                        <option value="" hidden>Select Type</option>
                         <option value="">House</option>
                         <option value="">Apartment</option>
                         <option value="">Land</option>
@@ -34,7 +50,7 @@ const Contact = () => {
                 </div>
                 <div>
                     <label>Message</label>
-                    <textarea name=""></textarea>
+                    <textarea name="" required></textarea>
                 </div>
                 <button type="submit" className={styles.sendBtn}>Send Message</button>
             </form>
