@@ -18,7 +18,7 @@ import getUsers from "./routes/getAllUsers";
 dotenv.config();
 connectDB();
 
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 app.use(cookieParser());
