@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../../Redux/store";
 import { fetchUser } from "../../../Redux/userSlice";
 import { useNavigate } from "react-router";
+const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
 
 interface Property {
     img: string;
@@ -111,7 +112,7 @@ const AddMenu = () => {
         formDataToSend.append("balcony", String(formData.balcony));
         formDataToSend.append("pool", String(formData.pool));
         formDataToSend.append("agent", formData.agent);
-        await api.post("http://localhost:5000/addProperty", formDataToSend, {
+        await api.post(BACKEND_URI, formDataToSend, {
             headers: { "Content-Type": "multipart/form-data" }
         });
         navigate("/properties");

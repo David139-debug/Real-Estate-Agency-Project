@@ -5,8 +5,9 @@ import { AppDispatch, RootState } from "../../Redux/store";
 import { fetchUser } from "../../Redux/userSlice";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import axios, { AxiosError } from "axios";
+import { AxiosError } from "axios";
 import api from "../../api";
+const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
 
 interface Errors {
     name?: string;
@@ -75,7 +76,7 @@ const Register = () => {
         }
         setErrors({});
         try {
-            await api.post(`http://localhost:5000/register`, formData, { withCredentials: true });
+            await api.post(BACKEND_URI, formData, { withCredentials: true });
             dispatch(fetchUser());
             navigate("/");
             window.location.reload();

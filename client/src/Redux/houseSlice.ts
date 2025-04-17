@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import api from "../api";
+const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
 
 interface House {
     img: string;
@@ -29,7 +30,7 @@ const initialState: HouseState = {
 
 export const fetchHouses = createAsyncThunk("houses/fetchHouses", async (_, { rejectWithValue }) => {
     try {
-        const response = await api.get<House[]>("http://localhost:5000/getProperty");
+        const response = await api.get<House[]>(`${BACKEND_URI}/getProperty`);
         return response.data;
     } catch (error: any) {
         return rejectWithValue(error.response?.data?.message || "Failed to fetch houses");

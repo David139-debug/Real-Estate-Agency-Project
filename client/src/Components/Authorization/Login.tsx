@@ -7,6 +7,7 @@ import api from "../../api";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { fetchUser } from "../../Redux/userSlice";
+const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
 
 interface Error {
     email?: string;
@@ -48,7 +49,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await api.post("http://localhost:5000/login", formData);
+            const response = await api.post(BACKEND_URI, formData);
             if (response.data) {
                 navigate(from);
                 window.location.reload();

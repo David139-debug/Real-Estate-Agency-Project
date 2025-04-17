@@ -9,6 +9,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import api from "../../api";
 import { setSearchData } from "../../Redux/searchSlice";
+const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
 
 const Navbar = () => {
 
@@ -39,7 +40,7 @@ const Navbar = () => {
     }, [prevScrollY, dispatch]);
 
     const handleLogout = async () => {
-        await api.post("http://localhost:5000/logout");
+        await api.post(BACKEND_URI);
         window.location.reload();
     };
 

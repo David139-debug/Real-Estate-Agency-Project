@@ -9,6 +9,7 @@ import { AppDispatch } from "../../../Redux/store";
 import { RootState } from "../../../Redux/store";
 import { useNavigate } from "react-router";
 import api from "../../../api";
+const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
 
 const Card = () => {
 
@@ -43,7 +44,7 @@ const Card = () => {
 
     const handleDelete = async () => {
         try {
-            await api.delete("http://localhost:5000/deleteProperty", {
+            await api.delete(`${BACKEND_URI}/deleteProperty`, {
                 data: {
                     id: property._id
                 }
@@ -72,12 +73,12 @@ const Card = () => {
             <div className={`${styles.imgDiv} ${animation ? styles.animateImages : ""}`}>
                 <div className={styles.left}>
                     <div onClick={handlePrev}><FontAwesomeIcon style={{ transform: "translate(10%)" }} className={`${styles.scrollIcons} ${styles.leftIcon}`} icon={faAngleLeft} /></div>
-                    <img className={styles.img} src={`http://localhost:5000/${property.img[imgIndex]}`} />
+                    <img className={styles.img} src={`${BACKEND_URI}/${property.img[imgIndex]}`} />
                     <div onClick={handleNext}><FontAwesomeIcon style={{ transform: "translate(-110%)" }} className={`${styles.scrollIcons} ${styles.rightIcon}`} icon={faAngleRight} /></div>
                 </div>
                 <div className={styles.right}>
                     {property.img.map((image: string, index: number) => (
-                        <img key={index} className={styles.miniImg} src={`http://localhost:5000/${image}`} />
+                        <img key={index} className={styles.miniImg} src={`${BACKEND_URI}/${image}`} />
                     ))}
                 </div>
             </div>

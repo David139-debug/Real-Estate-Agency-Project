@@ -7,6 +7,7 @@ import { faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router";
 import api from "../../api";
+const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
 
 const Profile = () => {
 
@@ -44,7 +45,7 @@ const Profile = () => {
     const handleEdit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            await api.put(`http://localhost:5000/editProfile/${data?._id}`, { formData });
+            await api.put(`${BACKEND_URI}/${data?._id}`, { formData });
             navigate("/");
         } catch (err: any) {
             if (err.response.data.message === "Email is already in use.") {

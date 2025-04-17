@@ -6,6 +6,7 @@ import api from "../../api";
 import { AppDispatch } from "../../Redux/store";
 import { RootState } from "../../Redux/store";
 import { useNavigate } from "react-router";
+const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
 
 interface Agent {
     num: number;
@@ -26,7 +27,7 @@ const AgentList = () => {
 
     useEffect(() => {
         const fetchUsers = async () => {
-            const response = await api.get("http://localhost:5000/getUsers");
+            const response = await api.get(BACKEND_URI);
             let filteredAgents = response.data.filter((user: any) => user.role === "agent")
             setAgents(filteredAgents);
         };
