@@ -41,7 +41,7 @@ api.interceptors.response.use(
             isRefreshing = true;
 
             try {
-                const { data } = await api.post("http://localhost:10000/refresh");
+                const { data } = await api.post(`${BACKEND_URI}/refresh`);
                 const newAccessToken = data.accessToken;
 
                 api.defaults.headers.common["Authorization"] = `Bearer ${newAccessToken}`;

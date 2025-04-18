@@ -49,7 +49,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await api.post(`http://localhost:10000/login`, formData);
+            const response = await api.post(`${BACKEND_URI}/login`, formData);
             if (response.data) {
                 navigate(from);
                 window.location.reload();

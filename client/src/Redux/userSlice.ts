@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import api from "../api";
+const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
 
 interface User {
     _id: string;
@@ -25,7 +26,7 @@ const initialState: UserState = {
 
 export const fetchUser = createAsyncThunk("user/fetchUser", async (_, thunkAPI) => {
     try {
-        const response = await api.get<User>("http://localhost:10000/getUser", { withCredentials: true });
+        const response = await api.get<User>(`${BACKEND_URI}/getUser`, { withCredentials: true });
         return response.data;
     } catch (err: unknown) {
         return thunkAPI.rejectWithValue("Failed to fetch user");

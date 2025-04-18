@@ -40,7 +40,7 @@ const Navbar = () => {
     }, [prevScrollY, dispatch]);
 
     const handleLogout = async () => {
-        await api.post(`http://localhost:10000/logout`);
+        await api.post(`${BACKEND_URI}/logout`);
         window.location.reload();
     };
 

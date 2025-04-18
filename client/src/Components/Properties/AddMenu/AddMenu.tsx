@@ -65,7 +65,7 @@ const AddMenu = () => {
     useEffect(() => {
         const fetchRole = async () => {
             try {
-                const response = await api.get("http://localhost:10000/verifyRole", { withCredentials: true });
+                const response = await api.get(`${BACKEND_URI}/verifyRole`, { withCredentials: true });
                 const role = response.data;
                 console.log(role)
                 if (role !== "owner" && role !== "agent") {

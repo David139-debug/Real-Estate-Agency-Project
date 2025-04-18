@@ -122,7 +122,7 @@ const Properties = () => {
                     )}
                     {filteredProperties.map((prop, index) => (
                         <div key={index} onClick={() => handleCard(prop)} className={`${styles.card} ${animation ? styles.animateCards : ""} ${agentName === prop.agent ? styles.myProperty : ""}`}>
-                        <img src={`http://localhost:10000/${prop.img[0]}`} alt={prop.name} /> 
+                        <img src={`${BACKEND_URI}/${prop.img[0]}`} alt={prop.name} /> 
                         <div className={styles.text}>
                             <h1 className={styles.name}>{prop.name}</h1>
                             <h2 className={styles.location}><FontAwesomeIcon icon={faLocationDot} /> {prop.location}</h2>
