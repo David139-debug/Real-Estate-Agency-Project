@@ -22,7 +22,7 @@ const Navbar = () => {
     useEffect(() => {
         dispatch(fetchUser());
     }, [dispatch]);
-
+    console.log(user)
     useEffect(() => {
         const handleScroll = () => {
             const currentScroll = window.scrollY;
