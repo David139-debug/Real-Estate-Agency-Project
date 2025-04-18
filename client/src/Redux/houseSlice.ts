@@ -30,7 +30,7 @@ const initialState: HouseState = {
 
 export const fetchHouses = createAsyncThunk("houses/fetchHouses", async (_, { rejectWithValue }) => {
     try {
-        const response = await api.get<House[]>(`${BACKEND_URI}/getProperty`);
+        const response = await api.get<House[]>(`http://localhost:10000/getProperty`);
         return response.data;
     } catch (error: any) {
         return rejectWithValue(error.response?.data?.message || "Failed to fetch houses");

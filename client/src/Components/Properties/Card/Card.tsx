@@ -44,7 +44,7 @@ const Card = () => {
 
     const handleDelete = async () => {
         try {
-            await api.delete(`${BACKEND_URI}/deleteProperty`, {
+            await api.delete(`http://localhost:10000/deleteProperty`, {
                 data: {
                     id: property._id
                 }
@@ -73,12 +73,12 @@ const Card = () => {
             <div className={`${styles.imgDiv} ${animation ? styles.animateImages : ""}`}>
                 <div className={styles.left}>
                     <div onClick={handlePrev}><FontAwesomeIcon style={{ transform: "translate(10%)" }} className={`${styles.scrollIcons} ${styles.leftIcon}`} icon={faAngleLeft} /></div>
-                    <img className={styles.img} src={`${BACKEND_URI}/${property.img[imgIndex]}`} />
+                    <img className={styles.img} src={`http://localhost:10000/${property.img[imgIndex]}`} />
                     <div onClick={handleNext}><FontAwesomeIcon style={{ transform: "translate(-110%)" }} className={`${styles.scrollIcons} ${styles.rightIcon}`} icon={faAngleRight} /></div>
                 </div>
                 <div className={styles.right}>
                     {property.img.map((image: string, index: number) => (
-                        <img key={index} className={styles.miniImg} src={`${BACKEND_URI}/${image}`} />
+                        <img key={index} className={styles.miniImg} src={`http://localhost:10000/${image}`} />
                     ))}
                 </div>
             </div>

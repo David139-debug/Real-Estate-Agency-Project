@@ -23,12 +23,12 @@ const initialState: UserState = {
     triggerUser: false
 };
 
-export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
+export const fetchUser = createAsyncThunk("user/fetchUser", async (_, thunkAPI) => {
     try {
-        const response = await api.get<User>("/getUser", { withCredentials: true });
+        const response = await api.get<User>("http://localhost:10000/getUser", { withCredentials: true });
         return response.data;
     } catch (err: unknown) {
-        return null
+        return thunkAPI.rejectWithValue("Failed to fetch user");
     }
 });
 

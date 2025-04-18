@@ -19,10 +19,12 @@ const handleRefresh = async (req: Request, res: Response): Promise<Response | vo
             { expiresIn: "15min" }
         );
 
+        const isProd = process.env.NODE_ENV === "production";
+
         res.cookie("accessToken", newAccessToken, {
             httpOnly: true,
-            secure: true,
-            sameSite: "none",
+            secure: isProd,
+            sameSite: isProd ? "none" : "lax",
             maxAge: 15 * 60 * 1000
         });
 

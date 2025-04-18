@@ -45,7 +45,7 @@ const Profile = () => {
     const handleEdit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            await api.put(`${BACKEND_URI}/editProfile/${data?._id}`, { formData });
+            await api.put(`http://localhost:10000/editProfile/${data?._id}`, { formData });
             navigate("/");
         } catch (err: any) {
             if (err.response.data.message === "Email is already in use.") {

@@ -27,7 +27,7 @@ const AgentList = () => {
 
     useEffect(() => {
         const fetchUsers = async () => {
-            const response = await api.get(`${BACKEND_URI}/getUsers`);
+            const response = await api.get(`http://localhost:10000/getUsers`);
             let filteredAgents = response.data.filter((user: any) => user.role === "agent")
             setAgents(filteredAgents);
         };

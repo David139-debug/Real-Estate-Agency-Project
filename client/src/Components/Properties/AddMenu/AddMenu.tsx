@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../../Redux/store";
 import { fetchUser } from "../../../Redux/userSlice";
 import { useNavigate } from "react-router";
+import { AxiosError } from "axios";
 const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
 
 interface Property {
@@ -33,8 +34,6 @@ const AddMenu = () => {
 
     const dispatch = useDispatch<AppDispatch>();
     const name = useSelector((state: RootState) => state.user.user?.name);
-    const role = useSelector((state: RootState) => state.user.user?.role);
-    const user = useSelector((state: RootState) => state.user.user);
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState<Property>({
@@ -64,10 +63,26 @@ const AddMenu = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        if (user === null || (role !== "agent" && role !== "owner")) {
-            navigate("/");
-        }
-    }, [user, role, navigate]);
+        const fetchRole = async () => {
+            try {
+                const response = await api.get("http://localhost:10000/verifyRole", { withCredentials: true });
+                const role = response.data;
+                console.log(role)
+                if (role !== "owner" && role !== "agent") {
+                    navigate("/");
+                }
+            } catch (err) {
+                const error = err as AxiosError;
+                if (error.response?.data) {
+                    const data = error.response.data as { message: string };
+                    if (data.message === "You must be authorized" ) {
+                        navigate("/");
+                    }
+                }
+            }
+        };
+        fetchRole();
+    }, []);
 
     useEffect(() => {
         if (name) {

@@ -14,6 +14,7 @@ import getProperty from "./routes/getProperties";
 import deleteProperty from "./routes/deleteProperty";
 import editProfile from "./routes/editProfile";
 import getUsers from "./routes/getAllUsers";
+import verifyRole from "./routes/verifyRole";
 
 dotenv.config();
 connectDB();
@@ -40,6 +41,7 @@ app.use("/getProperty", getProperty);
 app.use("/deleteProperty", deleteProperty);
 app.use("/editProfile", editProfile);
 app.use("/getUsers", getUsers);
+app.use("/verifyRole", verifyRole);
 
 mongoose.connection.once("open", () => {
     console.log("Connected to MongoDB");
