@@ -47,6 +47,8 @@ const Profile = () => {
 
         const isEmailChanged = formData.email !== data?.email;
 
+        console.log(isEmailChanged)
+
         try {
             await api.put(`${BACKEND_URI}/editProfile/${data?._id}`, { formData });
             navigate("/");
@@ -55,10 +57,6 @@ const Profile = () => {
             
             if (message === "Email is already in use." && isEmailChanged) {
                 alert(err.response.data.message)
-            } else if (message) {
-                alert(message)
-            } else {
-                console.error(err);
             }
         }
     };
