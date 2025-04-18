@@ -62,9 +62,8 @@ const AddMenu = () => {
         dispatch(fetchUser());
     }, [dispatch]);
 
-    if (role === "user") {
+    if (role && role !== "agent" && role !== "owner") {
         navigate("/");
-        return null;
     }
 
     useEffect(() => {
