@@ -8,8 +8,8 @@ const handleEditProfile = async (req: Request, res: Response) => {
 
         const matchesEmail = await User.findOne({ email: data.email });
         
-        if (matchesEmail) {
-            res.status(400).json({ message: "Email is already in use." });
+        if (matchesEmail && matchesEmail._id.toString() !== id) {
+            return res.status(400).json({ message: "Email is already in use." });
         }
 
         const editedUser = await User.findByIdAndUpdate(id, data, {
