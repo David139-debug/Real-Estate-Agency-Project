@@ -16,8 +16,6 @@ const Contact = () => {
         dispatch(fetchUser());
     }, [dispatch])
 
-    console.log(user)
-
     useEffect(() => {
         if (status === "succeeded" || status === "loading") {
             if (!user) {

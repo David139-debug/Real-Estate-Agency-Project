@@ -44,12 +44,19 @@ const Profile = () => {
 
     const handleEdit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const isEmailChanged = formData.email !== data?.email;
+
         try {
             await api.put(`${BACKEND_URI}/editProfile/${data?._id}`, { formData });
             navigate("/");
         } catch (err: any) {
-            if (err.response.data.message === "Email is already in use.") {
+            const message = err.response?.data?.message;
+            
+            if (message === "Email is already in use." && isEmailChanged) {
                 alert(err.response.data.message)
+            } else if (message) {
+                alert(message)
             } else {
                 console.error(err);
             }

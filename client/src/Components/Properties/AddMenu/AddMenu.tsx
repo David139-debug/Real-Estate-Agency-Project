@@ -67,7 +67,6 @@ const AddMenu = () => {
             try {
                 const response = await api.get(`${BACKEND_URI}/verifyRole`, { withCredentials: true });
                 const role = response.data;
-                console.log(role)
                 if (role !== "owner" && role !== "agent") {
                     navigate("/");
                 }
