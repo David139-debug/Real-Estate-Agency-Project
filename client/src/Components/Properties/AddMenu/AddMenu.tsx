@@ -63,7 +63,7 @@ const AddMenu = () => {
         dispatch(fetchUser());
     }, [dispatch]);
 
-    if (role && role !== "agent" && role !== "owner" && user === null) {
+    if (role !== "agent" && role !== "owner" && user === null) {
         navigate("/");
     }
 
