@@ -34,6 +34,7 @@ const AddMenu = () => {
     const dispatch = useDispatch<AppDispatch>();
     const name = useSelector((state: RootState) => state.user.user?.name);
     const role = useSelector((state: RootState) => state.user.user?.role);
+    const user = useSelector((state: RootState) => state.user.user);
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState<Property>({
@@ -62,8 +63,12 @@ const AddMenu = () => {
         dispatch(fetchUser());
     }, [dispatch]);
 
-    if (role && role !== "agent" && role !== "owner") {
-        navigate("/");
+    if (user === null) {
+        return navigate("/");
+    } else {
+        if (role && role !== "agent" && role !== "owner") {
+            navigate("/");
+        }
     }
 
     useEffect(() => {
