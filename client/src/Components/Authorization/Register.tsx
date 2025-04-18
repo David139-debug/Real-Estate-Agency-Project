@@ -76,7 +76,7 @@ const Register = () => {
         }
         setErrors({});
         try {
-            await api.post(BACKEND_URI, formData, { withCredentials: true });
+            await api.post(`${BACKEND_URI}/register`, formData, { withCredentials: true });
             dispatch(fetchUser());
             navigate("/");
             window.location.reload();
