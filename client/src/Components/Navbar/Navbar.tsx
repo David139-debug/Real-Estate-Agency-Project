@@ -154,7 +154,7 @@ const Navbar = () => {
                                     <li onClick={() => navigate("/properties")}>My Properties</li>
                                 </div>
                                 <div>
-                                    <li>Add Property</li>
+                                    <li onClick={() => navigate("/addMenu")}>Add Property</li>
                                 </div>
                                 <div>
                                     <li onClick={() => navigate("/agentList")}>Agent list</li>
