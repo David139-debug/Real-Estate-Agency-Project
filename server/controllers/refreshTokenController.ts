@@ -21,8 +21,8 @@ const handleRefresh = async (req: Request, res: Response): Promise<Response | vo
 
         res.cookie("accessToken", newAccessToken, {
             httpOnly: true,
-            secure: false,
-            sameSite: "lax",
+            secure: true,
+            sameSite: "none",
             maxAge: 15 * 60 * 1000
         });
 
