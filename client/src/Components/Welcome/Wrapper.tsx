@@ -80,7 +80,7 @@ const Wrapper = () => {
                     </div>
                     {status === "succeeded" && (
                         <div className={styles.profileDiv}>
-                            <a href="/profile" className={styles.profile}>{user?.name}<FontAwesomeIcon icon={faUser} />{user?.name}</a>
+                            <a href="/profile" style={{ textDecoration: "none", color: "white" }} className={styles.profile}>{user?.name}<FontAwesomeIcon icon={faUser} /></a>
                         </div>
                     )}
                     {status !== "succeeded" && (
