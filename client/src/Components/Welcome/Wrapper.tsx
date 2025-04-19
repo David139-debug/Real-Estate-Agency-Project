@@ -9,6 +9,8 @@ import { useNavigate } from "react-router";
 import { fetchUser } from "../../Redux/userSlice";
 import { AppDispatch } from "../../Redux/store";
 import { RootState } from "../../Redux/store";
+import api from "../../api";
+const BACKEND_URI = import.meta.env.VITE_BACKEND_URI;
 
 const Wrapper = () => {
 
@@ -60,6 +62,11 @@ const Wrapper = () => {
             navigate("/properties");
     };
 
+    const handleLogout = async () => {
+        await api.post(`${BACKEND_URI}/logout`);
+        window.location.reload();
+    };
+
     return(
         <section className={styles.wrapper}>
             <div className={`${styles.overlay} ${sidebar ? styles.setOverlay : ""}`}></div>
@@ -79,8 +86,9 @@ const Wrapper = () => {
                         <li onClick={(e) => handleProps(e, "Commercial")}>Commerical</li>
                     </div>
                     {status === "succeeded" && (
-                        <div className={styles.profileDiv}>
-                            <a href="/profile" style={{ textDecoration: "none", color: "white" }} className={styles.profile}>{user?.name}<FontAwesomeIcon icon={faUser} /></a>
+                        <div className={styles.profileDiv} style={{ display: "flex", flexDirection: "column" }}>
+                            <a href="/profile" style={{ textDecoration: "none", color: "white", marginBottom: ".5em" }} className={styles.profile}>{user?.name}<FontAwesomeIcon icon={faUser} /></a>
+                            <button className={styles.btn} onClick={handleLogout}>Logout</button>
                         </div>
                     )}
                     {status !== "succeeded" && (
