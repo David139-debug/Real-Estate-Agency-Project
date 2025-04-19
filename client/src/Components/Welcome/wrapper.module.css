@@ -162,6 +162,7 @@
         margin-bottom: .5em;
         font-weight: bold;
         width: 150px;
+        margin-top: .5em;
     }
 
     .logoutBtn:hover {
