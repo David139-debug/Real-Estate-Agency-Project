@@ -148,4 +148,24 @@
     .setOverlay {
         display: block;
     }
+
+    .profile {
+        display: flex;
+        gap: 1em;
+        text-transform: capitalize;
+    }
+
+    .logoutBtn {
+        border-radius: 15px;
+        transition: background-color .2s, color .2s;
+        border: none;
+        margin-bottom: .5em;
+        font-weight: bold;
+        width: 150px;
+    }
+
+    .logoutBtn:hover {
+        background-color: #dc5404;
+        color: white;
+    }
 }

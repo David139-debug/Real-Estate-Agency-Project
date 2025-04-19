@@ -88,7 +88,7 @@ const Wrapper = () => {
                     {status === "succeeded" && (
                         <div className={styles.profileDiv} style={{ display: "flex", flexDirection: "column" }}>
                             <a href="/profile" style={{ textDecoration: "none", color: "white", marginBottom: ".5em" }} className={styles.profile}>{user?.name}<FontAwesomeIcon icon={faUser} /></a>
-                            <button className={styles.btn} onClick={handleLogout}>Logout</button>
+                            <button className={styles.logoutBtn} onClick={handleLogout}>Logout</button>
                         </div>
                     )}
                     {status !== "succeeded" && (
