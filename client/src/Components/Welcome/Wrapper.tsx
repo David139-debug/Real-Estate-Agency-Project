@@ -2,14 +2,19 @@ import styles from "./wrapper.module.css";
 import FilterMenu from "./FilterMenu/FilterMenu";
 import { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch } from "react-redux";
+import { faBars, faUser } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
 import { setSearchData } from "../../Redux/searchSlice";
 import { useNavigate } from "react-router";
+import { fetchUser } from "../../Redux/userSlice";
+import { AppDispatch } from "../../Redux/store";
+import { RootState } from "../../Redux/store";
 
 const Wrapper = () => {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
+    const user = useSelector((state: RootState) => state.user.user)
+    const status = useSelector((state: RootState) => state.user.status)
     const navigate = useNavigate();
 
     const [animation, setAnimation] = useState<boolean>(false);
@@ -21,6 +26,10 @@ const Wrapper = () => {
             setAnimation(true);
         }, 1000)
     }, [])
+
+    useEffect(() => {
+        dispatch(fetchUser());
+    }, [dispatch]);
 
     useEffect(() => {
         const handleClosing = (e: MouseEvent) => {
@@ -69,12 +78,19 @@ const Wrapper = () => {
                     <div>
                         <li onClick={(e) => handleProps(e, "Commercial")}>Commerical</li>
                     </div>
-                    <div>
+                    {status === "succeeded" && (
+                        <div className={styles.profileDiv}>
+                            <a href="/profile" className={styles.profile}>{user?.name}<FontAwesomeIcon icon={faUser} />{user?.name}</a>
+                        </div>
+                    )}
+                    {status !== "succeeded" && (
+                        <div>
                         <li>
                             <button className={styles.btn} onClick={() => navigate("/login")}>Login</button>
                             <button className={styles.btn} onClick={() => navigate("/register")}>Register</button>
                         </li>
                     </div>
+                    )}
                 </ul>
             </nav>
             <h1 className={`${styles.title} ${animation ? styles.animateText : ""}`}>Discover <span style={{ color: "#dc5304" }}>Prime Real Estate</span> Opportunities.</h1>
