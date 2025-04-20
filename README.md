@@ -41,12 +41,12 @@ If you want, you can try logging in to one of two accounts and test roles.
 ### Hosting
 * Render
 
-## Setup 
-If you want to try Real Estate Agency project, please feel free to clone my repository and enter following commands in your terminal:
-
 # Note
 Please wait approximately 50 seconds after making any API request, as the Render server
 may take some time to wake up, due to the free tier limitations.
+
+## Setup 
+If you want to try Real Estate Agency project, please feel free to clone my repository and enter following commands in your terminal:
 
 ```bash
 cd estate-agency
