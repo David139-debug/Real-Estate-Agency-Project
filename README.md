@@ -12,6 +12,15 @@ Full **MERN stack** web application designed for listing, browsing and managing 
 * Image upload functionality.
 * Responsive design (works on desktop and mobile).
 
+# Accounts
+If you want, you can try logging in to one of two accounts and test roles.
+#### Owner
+* Email: davidmalesevic55@gmail.com
+* Password: Password123
+#### Agent
+* Email: jonhyjackson@gmail.com
+* Password: Password123
+
 ## Tech Stack
 
 ### Front-end
@@ -34,6 +43,10 @@ Full **MERN stack** web application designed for listing, browsing and managing 
 
 ## Setup 
 If you want to try Real Estate Agency project, please feel free to clone my repository and enter following commands in your terminal:
+
+# Note
+Please wait approximately 50 seconds after making any API request, as the Render server
+may take some time to wake up, due to the free tier limitations.
 
 ```bash
 cd estate-agency
