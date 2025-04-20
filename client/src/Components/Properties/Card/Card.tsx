@@ -85,7 +85,7 @@ const Card = () => {
             <article className={`${styles.about} ${animation ? styles.animateText : ""}`}>
                 <div className={styles.name}>
                     <div>{property.name}</div>
-                    <div style={{ color: "#dc5404", fontWeight: "bold", margin: "1em 0" }}>{property.offer === "Rent" ? <p style={{ fontSize: "1.3rem", color: "black" }}>Price per Night</p> : ""}{Number(property.price).toLocaleString("de-DE")} $</div>
+                    <div style={{ color: "#dc5404", fontWeight: "bold", margin: "1em 0" }}>{property.offer === "Rent" ? <p style={{ fontSize: "1.3rem", color: "black" }}>Price per Day</p> : ""}{Number(property.price).toLocaleString("de-DE")} $</div>
                 </div>
                 <div className={styles.details}>
                     <div className={styles.propDiv}>
